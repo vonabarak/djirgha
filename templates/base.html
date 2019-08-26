@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ᡚᡅᠷᡎᠠ</title>
+    {% load static %}
+    <style>
+        @font-face {
+            font-family: "Noto Sans Mongolian";
+            src: url({% static 'NotoSansMongolian-Regular.ttf' %});
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'main.css' %}" type="text/css">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div id="logo">
+        <h1>ᡚᡅᠷᡎᠠ</h1>
+        <a href="{% url "hot-seat" %}?newgame=1">new game</a>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

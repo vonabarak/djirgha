@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+    <script src="{% static 'board.js' %}"></script>
+{% endblock %}
+{% block content %}
+    <canvas id="board" width="{{ board.width }}" height="{{ board.height }}">
+    </canvas>
+    <div id="log">
+    </div>
+    <script type="application/javascript">
+        const boardParams = {
+          width: {{ board.width }},
+          height: {{ board.height }},
+          lanes: [],
+          punkts: {}
+        };
+
+        {% for l in board.lanes %}
+          boardParams.lanes.push([
+            [{{ l.0.x }}, {{ l.0.y }}],
+            [{{ l.2.x }}, {{ l.2.y }}]
+          ]);
+        {% endfor %}
+
+        {% for p in board.punkts %}
+        boardParams.punkts.{{ p.name }} = {
+              x: {{ p.x }},
+              y: {{ p.y }},
+              color: "#808080"
+        };
+        {% endfor %}
+
+        const canvas = document.getElementById("board");
+        const context = drawBoard(canvas, boardParams);
+        getCurrentStatus(context, boardParams);
+        canvas.addEventListener('click', (event) => {
+          eventLisener(event, context, boardParams);
+        }, false)
+    </script>
+{% endblock %}

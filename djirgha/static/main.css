@@ -1,0 +1,24 @@
+#logo {
+    position: relative;
+    float: right;
+    margin: 20px;
+}
+#logo h1 {
+    font-family: "Noto Sans Mongolian", sans-serif;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+#board {
+    border:1px solid black;
+}
+#log {
+    position: relative;
+    float: right;
+    margin: 10px;
+    padding: 10px;
+    font-family: monospace;
+    font-size: small;
+}
