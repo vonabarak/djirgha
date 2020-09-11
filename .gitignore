@@ -3,3 +3,8 @@
 db.sqlite3
 *.pyc
 __pycache__
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
