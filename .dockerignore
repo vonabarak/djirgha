@@ -5,16 +5,8 @@
 __pycache__
 .coverage
 htmlcov/
-.pytest_cache# Elastic Beanstalk Files
-.elasticbeanstalk/*
-.git
-.gitignore# Elastic Beanstalk Files
-.elasticbeanstalk/*
-.git
-.gitignore# Elastic Beanstalk Files
-.elasticbeanstalk/*
-.git
-.gitignore# Elastic Beanstalk Files
-.elasticbeanstalk/*
-.git
+.pytest_cache
 .gitignore
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
