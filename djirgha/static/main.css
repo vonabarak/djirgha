@@ -22,3 +22,7 @@
     font-family: monospace;
     font-size: small;
 }
+#log :first-child {
+    font-weight: bold;
+    font-size: larger;
+}
