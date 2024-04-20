@@ -114,13 +114,26 @@ function getCurrentStatus(context, boardParams) {
   makeRequest(context, boardParams, url);
 }
 
-function eventLisener(event, context, boardParams){
+function getTouchPosition(event) {
+  event.preventDefault();
+  var touch = event.touches[0] || event.changedTouches[0];
+  var rect = event.target.getBoundingClientRect();
+  var x = touch.clientX - rect.left;
+  var y = touch.clientY - rect.top;
+  return { x: x, y: y };
+}
+
+function getMousePosition(event) {
+  return { x: event.layerX, y: event.layerY };
+}
+
+function eventLisener(position, context, boardParams){
   const size = 40;
   for (let punkt_name in boardParams.punkts) {
     // check which punkt was clicked
     const punkt = boardParams.punkts[punkt_name];
-    const x_ = punkt.x+size >= event.layerX && event.layerX >= punkt.x-size;
-    const y_ = punkt.y+size >= event.layerY && event.layerY >= punkt.y-size;
+    const x_ = punkt.x+size >= position.x && position.x >= punkt.x-size;
+    const y_ = punkt.y+size >= position.y && position.y >= punkt.y-size;
     if (x_ && y_) {
       makeRequest(context, boardParams, "/turn/" + punkt_name);
     }

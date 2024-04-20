@@ -34,8 +34,12 @@
         const canvas = document.getElementById("board");
         const context = drawBoard(canvas, boardParams);
         getCurrentStatus(context, boardParams);
+        
         canvas.addEventListener('click', (event) => {
-          eventLisener(event, context, boardParams);
+          eventLisener(getMousePosition(event), context, boardParams);
+        }, false)
+        canvas.addEventListener('touchstart', (event) => {
+          eventLisener(getTouchPosition(event), context, boardParams);
         }, false)
     </script>
 {% endblock %}

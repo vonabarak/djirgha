@@ -10,3 +10,6 @@ htmlcov/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
+
+db.sqlite
+

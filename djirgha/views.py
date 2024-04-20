@@ -1,6 +1,5 @@
-import json
 from django.views.generic import TemplateView, View
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import resolve_url
 from djirgha.models import Board
 
@@ -43,7 +42,7 @@ class TurnView(View):
             "punkts": board.dict,
             "message": message
         }
-        return HttpResponse(json.dumps(response))
+        return JsonResponse(response)
 
 
 class CurrentView(View):
@@ -53,4 +52,4 @@ class CurrentView(View):
             "punkts": board.dict,
             "message": "Board refreshed.\n" + board.message
         }
-        return HttpResponse(json.dumps(response))
+        return JsonResponse(response)
